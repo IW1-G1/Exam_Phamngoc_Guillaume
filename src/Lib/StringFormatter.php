@@ -12,8 +12,7 @@ class StringFormatter
      */
     public function prefix($prefix, $string, $camelCase = false)
     {
-        if($camelCase)
-        {
+        if ($camelCase) {
             return $this->toCamelCase($prefix, $string);
         }
         return $this->concatString($prefix, $string);
@@ -27,8 +26,7 @@ class StringFormatter
      */
     public function suffix($suffix, $string, $camelCase = false)
     {
-        if($camelCase)
-        {
+        if ($camelCase) {
             return $this->toCamelCase($string, $suffix);
         }
         return $this->concatString($string, $suffix);
