@@ -8,16 +8,24 @@ class StringFormatterTest extends \PHPUnit_Framework_TestCase {
 
     public function testPrefix() {
         $myclass = new StringFormatter();
-        $result = $myclass->prefix("pre", "test", false);
+        $camelCase = true;
+        $result = $myclass->prefix("pre", "test", $camelCase);
 
-        $this->assertSame($result, "pretest");
+        if ($camelCase)
+            $this->assertSame($result, "preTest");
+        else
+            $this->assertSame($result, "pretest");
     }
 
     public function testSuffix() {
         $myclass = new StringFormatter();
-        $result = $myclass->suffix("suf", "test", true);
+        $camelCase = false;
+        $result = $myclass->suffix("suf", "test", $camelCase);
 
-        $this->assertSame($result, "testSuf");
+        if ($camelCase)
+            $this->assertSame($result, "testSuf");
+        else
+            $this->assertSame($result, "testsuf");
     }
 
     public function testToCamelCase() {
